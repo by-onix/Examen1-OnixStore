@@ -41,7 +41,7 @@ return [
             'provider' => 'users',
         ],
         'api' => [
-        'driver' => 'sanctum', // <- cambia esta línea
+        'driver' => 'sanctum', // conexion a sanctum
         'provider' => 'users',
         'hash' => false,
     ],

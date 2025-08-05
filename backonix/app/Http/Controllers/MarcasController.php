@@ -12,6 +12,7 @@ class MarcasController extends Controller
     public function index()
     {
         //
+        return response()->json(Marcas::all());
     }
 
     /**
@@ -19,7 +20,18 @@ class MarcasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validación
+        $request->validate([
+            'nombre'=>'required',
+            'descripcion'=>'nullable'
+        ]);
+
+        $marcas = Marcas::create($request->all());
+
+        return response()->json([
+            'mensaje'=>'Marca creada exitosamente',
+            'marcas'=> $marcas
+],201);
     }
 
     /**

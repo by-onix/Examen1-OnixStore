@@ -4,7 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MarcaController;
-//use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ProductoController;
 
 
 // Rutas públicas

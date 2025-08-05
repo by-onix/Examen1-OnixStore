@@ -20,14 +20,14 @@ class ProductosSeeder extends Seeder
         'marcas_id'=> 1, 
         'created_at'=> now(),
         'updated_at'=> now(),
-    ],
-    [
+        ],
+        [
         'nombre'=>'camara web ',
         'precio'=> 350.00,
         'marcas_id'=> 2, 
         'created_at'=> now(),
         'updated_at'=> now(),
-    ]
-    ]);
+        ]
+]);
     }
 }

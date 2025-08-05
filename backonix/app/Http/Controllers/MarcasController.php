@@ -40,7 +40,16 @@ class MarcasController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $marcas = Marcas::find($id);
+        if(!$marcas)
+        {
+            return response()->json(
+                [
+                    'mensaje'=>'Marca no encontrada'
+                ],404
+                );
+        }
+        return response()->json($marcas,200);
     }
 
     /**
@@ -48,7 +57,27 @@ class MarcasController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'nombre'=>'required',
+            'descripcion'=>'nullable'
+        ]);
+
+        $marcas = Marcas::find($id);
+        
+        if(!$marcas){
+
+            return response()->json(
+                [
+                    'mensaje'=>'Marca no encontrada'
+                ],404
+                );
+        }
+        $marcas->update($request->all());
+        
+        return response()->json([
+            'mensaje'=>'Marca actualizada exitosamente',
+            'marcas'=> $marcas 
+        ],201);
     }
 
     /**
